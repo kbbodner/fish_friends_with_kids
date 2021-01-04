@@ -2,9 +2,7 @@
 
 ### Authors: Korryn Bodner, Chris Brimacombe, Marie-Josée Fortin and Péter K. Molnár
 
-<div style="line-height:100%;">
-    <br>
-</div>
+<br/>
 
 ## About the Project
 This repository contains code to recreate the analyses for "Why body size matters: how larger fish ontogeny shapes ecological network structure". The purpose of these analyses were to construct and compare ecological interaction networks, specifically, non-stage-structured (adults only) and stage-structured (adults and juveniles) freshwater stream fish interaction networks. Data for the analyses can be found in the repository's data folder and is sourced from NEON's [Fish electrofishing, gill netting, and fyke netting counts](https://data.neonscience.org/data-products/DP1.20107.001). There are three main sections to the analysis: Network Construction, Network Comparison (3D Plot and Matrices & GCD-11 and GCM-11), and Dissimilarity Analysis.  
