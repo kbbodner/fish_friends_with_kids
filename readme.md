@@ -5,10 +5,6 @@
 ## About the Project
 This repository contains code to recreate the analyses for "Why body size matters: how larger fish ontogeny shapes ecological network structure". The purpose of these analyses were to construct and compare ecological interaction networks, specifically, non-stage-structured (adults only) and stage-structured (adults and juveniles) freshwater stream fish interaction networks. Data for the analyses can be found in the repository's data folder and is sourced from NEON's [Fish electrofishing, gill netting, and fyke netting counts](https://data.neonscience.org/data-products/DP1.20107.001). There are three main sections to the analysis: Network Construction, Network Comparison (3D Plot and Matrices & GCD-11 and GCM-11), and Dissimilarity Analysis.  
 
-<div style="line-height:10%;">
-    <br>
-</div>
-
 ## Getting Started
 
 Code for Network Construction, 3D Plot and Matrices, and Dissimilarity Analysis were run in R 4.0.3 while GCD-11 and GCM-11 Calculations were performed in Python 2.7.13. Please make sure you have access to R 4.0 or above and Python 2.7 to run the analyses below.  
