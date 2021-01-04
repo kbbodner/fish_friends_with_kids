@@ -1,23 +1,27 @@
                                 #
   #Dissimilarity Analysis       #
-      #by Korryn Bodner         #
+                                #
 #################################
 
 library(ggplot2)
 library(ggrepel)
 
 
-df.ind_fish<-read.csv("NEON_fish_inds.csv", header=T)
+df.ind_fish<-read.csv("data/NEON_fish_inds.csv", header=T)
 
 #read in stage-structure network's edgelist
 #duplicate 1st and 2nd column and switch col #s to allow for easy counting of all undirected interactions
 
-stages<-read.table("stage.edgelist.txt")
+stages<-read.table("data/stage.edgelist.txt")
 stages.copy<-stages[c(2,1)]
 colnames(stages.copy)<-colnames(stages)
 
-#FUNCTION avg.size.metrics
-#calculates avg adult-juv size diff. and avg. adult length per species
+#FUNCTION NAME: avg.size.metrics
+#PURPOSE: calculates avg adult-juv size diff. and avg. adult length per species
+#DESCRIPTION: subsets data by species and calculates size metrics to return
+#summary measures per species
+#INPUT: df of individual fish with size measurements
+#OUTPUT: df of scientific name, size diff. and average adult length per species
 avg.size.metrics<-function(dataset){
   
   fish.names<-levels(as.factor(dataset$scientificName))
@@ -108,7 +112,6 @@ summary(size.diff)
 #regression with L.megalotis removed
 data.subset<-subset(new.data.noNA,species.names.50!="L.megalotis")
 summary(lm(jaccard~size.diff,data=data.subset))
-
 
 #plot Jaccard dissimilarity against adult-juv size-difference
 jaccard.plot<-ggplot(new.data.noNA, aes(x=size.diff, y=jaccard),alpha=0.5) + 
