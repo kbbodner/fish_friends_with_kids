@@ -17,7 +17,7 @@ library(rgl)
 #instructions and code for GCD-11 found here: http://www0.cs.ucl.ac.uk/staff/natasa/GCD/
 gcd.11<-read.csv("gcd11.csv",row.names=1,header=T)
 
-#MDS
+#Metric Multi-Dimensional Scaling (MDS)
 d <- dist(gcd.11) # euclidean distances between the rows
 fit <- cmdscale(d,eig=TRUE, k=3) # k is the number of dim
 
