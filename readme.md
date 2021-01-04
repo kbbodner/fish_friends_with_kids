@@ -2,7 +2,7 @@
 
 ### Authors: Korryn Bodner, Chris Brimacombe, Marie-Josée Fortin and Péter K. Molnár
 
-<div style="line-height:200%;">
+<div style="line-height:500%;">
     <br>
 </div>
 
