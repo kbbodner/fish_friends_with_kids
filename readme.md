@@ -23,9 +23,9 @@ To construct inferred adult and stage-structured species interaction networks, w
 3. construct resampled networks with EMtree
 4. create randomly rewired networks
 
-### *Code:*<span style="font-weight:normal"> "Network_Construction_PLN_EMtree_Rewiring.R" </span> 
+#### *Code:*<span style="font-weight:normal"> "Network_Construction_PLN_EMtree_Rewiring.R" </span> 
 
-### *Data:*<span style="font-weight:normal"> "NEON_aggregate_adultOnly.csv" &   "NEON_aggregate_stageStructured.csv" </span>
+#### *Data:*<span style="font-weight:normal"> "NEON_aggregate_adultOnly.csv" &   "NEON_aggregate_stageStructured.csv" </span>
 
 ## Network Comparison
 
@@ -41,17 +41,17 @@ Graphlet correlation distance-11 (GCD-11) and graphlet correlation matrix-11 (GC
 Here  GCD-11 and GCM-11 outputs are used as inputs to create summary measures and figures. The code creates a 3D Plot using GCD-11 scores reduced to three dimensions via Metric-Multidimensional Scaling with the [car](https://cran.r-project.org/web/packages/car/index.html) package (Fox and Weisberg 2019). To create GCM-11 figures, .ndump2 files are read in, spearman correlations are calculated, and correlation coefficients and significance levels are plotted.
 
 
-### *Code:*<span style="font-weight:normal"> "Network_Comparison_MDS_GCM-11.R" </span> 
+#### *Code:*<span style="font-weight:normal"> "Network_Comparison_MDS_GCM-11.R" </span> 
 
-### *Data:*<span style="font-weight:normal"> "rewire_adult" & "rewire_fifty" with ".ndump2" extension </span> 
+#### *Data:*<span style="font-weight:normal"> "rewire_adult" & "rewire_fifty" with ".ndump2" extension </span> 
 
 ## Dissimilarity Analysis
 
 ### *Overview:*
 The following code creates a Jaccard dissimilarity index of connections with other species between "larger" adults and juveniles, and creates a linear regression and corresponding plot of adult and juvenile size differences with their jaccard dissimilarity scores.
 
-### *Code:*<span style="font-weight:normal"> "Dissimilarity_analysis.R"</span> 
-### *Data:*<span style="font-weight:normal"> "NEON_fish_inds.csv"</span>  
+#### *Code:*<span style="font-weight:normal"> "Dissimilarity_analysis.R"</span> 
+#### *Data:*<span style="font-weight:normal"> "NEON_fish_inds.csv"</span>  
 <div style="line-height:10%;">
     <br>
 </div>
