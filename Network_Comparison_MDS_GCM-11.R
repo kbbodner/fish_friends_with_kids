@@ -2,7 +2,7 @@
                                     #
       #Network Comparison           #
       #MDS and GCM-11               #
-      #by Korryn Bodner             #
+                                    #
                                     #
 #####################################
 
@@ -111,9 +111,11 @@ gcd_table
 
 ####Plot GCM-11s
 
+#set working directory to /data to get .ndump2 files and gcd.files
+setwd("data/")
+
 #read in adult and stage-structured .ndump2 files 
 # .ndump2 files created using GCD-11 code by Yaveroglu et al. 2014
-
 filelist.adult = list.files(pattern = "rewire_adult.*.ndump2")
 files.adult<-lapply(filelist.adult, FUN=read.table, header=F) #need to set it up to read files in git
 filelist.stage = list.files(pattern = "rewire_fifty.*.ndump2")
@@ -125,7 +127,14 @@ stage.orbits<-read.csv("stages.gcd.csv",header=T)
 
 #Step 1: Create average node positions for rewired networks
 
-#function for node averages
+#FUNCTION NAME:average_node_pos
+#PURPOSE: Calculate average number of appearances for random networks to create
+#randomly rewired adult and stage-structured GCM-11s
+#DESCRIPTION: Calculates the average number each node appears in an orbit position
+#number of occurrences was calculated using Yaveroglu et al. 2014 
+#OUTPUT: n x 11 df of average node appearances
+#INPUT: list of read-in files (dfs) representing a network
+
 average_node_pos<-function(list_of_files){
 
   n=length(list_of_files) #length of files
@@ -148,13 +157,18 @@ average_node_pos<-function(list_of_files){
   return(average.table.gcd)
 }
 
+#run node averages function
 avg.adult.orbits<-average_node_pos(files.adult)
 colnames(avg.adult.orbits)<-colnames(adult.orbits)
 avg.stage.orbits<-average_node_pos(files.stage)
 colnames(avg.stage.orbits)<-colnames(stage.orbits)
 
-#Step 2: Reorder orbits to optomize patterns
-#reorder matrix
+#Step 2: Reorder orbits to optimize patterns
+
+#FUNCTION NAME:heatmap.order
+#PURPOSE: rearrange df columns to highlight correlation patterns of orbits
+#INPUT: df of node occurrences in orbits
+#OUTPUT: Reordered df
 heatmap.order<-function(dataset){
   temp.df<-dataset
   temp.order<-data.frame()
@@ -177,7 +191,11 @@ avg.stage.orbits.ordered<-heatmap.order(avg.stage.orbits)
 
 #Step 2: Modify corrplot function for spearman correlation
 
-#code provided by (http://www.sthda.com/english/wiki/visualize-correlation-matrix-using-correlogram)
+#FUNCTION NAME: cor.mtest
+#PURPOSE: modifies cor.mtest to use spearman correlation in place of pearson correlation
+#code provided by 
+#(http://www.sthda.com/english/wiki/visualize-correlation-matrix-using-correlogram)
+
 cor.mtest <- function(mat, ...) {
   mat <- as.matrix(mat)
   n <- ncol(mat)
