@@ -1,6 +1,10 @@
 # Larger fish ontogeny shapes ecological network structure
 
-### Authors: Korryn Bodner, Chris Brimacombe, Marie-Josee Fortin and Peter K. Molnar
+### Authors: Korryn Bodner, Chris Brimacombe, Marie-Josée Fortin and Péter K. Molnár
+
+<div style="line-height:1%;">
+    <br>
+</div>
 
 ## About the Project
 This repository contains code to recreate the analyses for "Why body size matters: how larger fish ontogeny shapes ecological network structure". The purpose of these analyses were to construct and compare ecological interaction networks, specifically, non-stage-structured (adults only) and stage-structured (adults and juveniles) freshwater stream fish interaction networks. Data for the analyses can be found in the repository's data folder and is sourced from NEON's [Fish electrofishing, gill netting, and fyke netting counts](https://data.neonscience.org/data-products/DP1.20107.001). There are three main sections to the analysis: Network Construction, Network Comparison (3D Plot and Matrices & GCD-11 and GCM-11), and Dissimilarity Analysis.  
@@ -8,9 +12,6 @@ This repository contains code to recreate the analyses for "Why body size matter
 ## Getting Started
 
 Code for Network Construction, 3D Plot and Matrices, and Dissimilarity Analysis were run in R 4.0.3 while GCD-11 and GCM-11 Calculations were performed in Python 2.7.13. Please make sure you have access to R 4.0 or above and Python 2.7 to run the analyses below.  
-<div style="line-height:10%;">
-    <br>
-</div>
 
 ## Network Construction
 
@@ -25,10 +26,6 @@ To construct inferred adult and stage-structured species interaction networks, w
 ### *Code:*<span style="font-weight:normal"> "Network_Construction_PLN_EMtree_Rewiring.R" </span> 
 
 ### *Data:*<span style="font-weight:normal"> "NEON_aggregate_adultOnly.csv" &   "NEON_aggregate_stageStructured.csv" </span>
-
-<div style="line-height:10%;">
-    <br>
-</div>
 
 ## Network Comparison
 
@@ -45,10 +42,8 @@ Here  GCD-11 and GCM-11 outputs are used as inputs to create summary measures an
 
 
 ### *Code:*<span style="font-weight:normal"> "Network_Comparison_MDS_GCM-11.R" </span> 
+
 ### *Data:*<span style="font-weight:normal"> "rewire_adult" & "rewire_fifty" with ".ndump2" extension </span> 
-<div style="line-height:10%;">
-    <br>
-</div>
 
 ## Dissimilarity Analysis
 
