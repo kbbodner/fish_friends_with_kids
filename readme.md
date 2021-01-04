@@ -1,20 +1,25 @@
-
-
 ## Larger fish ontogeny shapes ecological network structure
+
 ##### Authors: Korryn Bodner, Chris Brimacombe, Marie-Josee Fortin and Peter K. Molnar
+
 <div style="line-height:10%;">
     <br>
 </div>
+
 #### About the Project
 This repository contains code to recreate the analyses for "Why body size matters: how larger fish ontogeny shapes ecological network structure". The purpose of these analyses were to construct and compare ecological interaction networks, specifically, non-stage-structured (adults only) and stage-structured (adults and juveniles) freshwater stream fish interaction networks. Data for the analyses can be found in the repository's data folder and is sourced from NEON's [Fish electrofishing, gill netting, and fyke netting counts](https://data.neonscience.org/data-products/DP1.20107.001). There are three main sections to the analysis: Network Construction, Network Comparison (3D Plot and Matrices & GCD-11 and GCM-11), and Dissimilarity Analysis.  
+
 <div style="line-height:10%;">
     <br>
 </div>
+
 #### Getting Started
+
 Code for Network Construction, 3D Plot and Matrices, and Dissimilarity Analysis were run in R 4.0.3 while GCD-11 and GCM-11 Calculations were performed in Python 2.7.13. Please make sure you have access to R 4.0 or above and Python 2.7 to run the analyses below.  
 <div style="line-height:10%;">
     <br>
 </div>
+
 #### Network Construction
 
 ##### *Overview:* 
@@ -26,13 +31,17 @@ To construct inferred adult and stage-structured species interaction networks, w
 4. create randomly rewired networks
 
 ##### *Code:*<span style="font-weight:normal"> "Network_Construction_PLN_EMtree_Rewiring.R" </span> 
+
 ##### *Data:*<span style="font-weight:normal"> "NEON_aggregate_adultOnly.csv" &   "NEON_aggregate_stageStructured.csv" </span>
+
 <div style="line-height:10%;">
     <br>
 </div>
+
 #### Network Comparison
 
 ##### GCD-11 and GCM-11 Calculations
+
 ##### *Overview:*
 
 Graphlet correlation distance-11 (GCD-11) and graphlet correlation matrix-11 (GCM-11) are methods adopted from "Revealing the Hidden Language of Complex Networks" by Yaveroglu et al. (2014). Python code to calculate GCD-11 and the components of GCM-11 can be found [here](http://www0.cs.ucl.ac.uk/staff/natasa/GCD/).
@@ -48,7 +57,9 @@ Here  GCD-11 and GCM-11 outputs are used as inputs to create summary measures an
 <div style="line-height:10%;">
     <br>
 </div>
+
 #### Dissimilarity Analysis
+
 ##### *Overview:*
 The following code creates a Jaccard dissimilarity index of connections with other species between "larger" adults and juveniles, and creates a linear regression and corresponding plot of adult and juvenile size differences with their jaccard dissimilarity scores.
 
@@ -57,6 +68,7 @@ The following code creates a Jaccard dissimilarity index of connections with oth
 <div style="line-height:10%;">
     <br>
 </div>
+
 #### References
 
 Chiquet, J., M. Mariadassou, and S. Robin. 2018. Variational inference for probabilistic poisson PCA. Annals of Applied Statistics 12:2674–2698.
