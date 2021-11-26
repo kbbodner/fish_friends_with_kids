@@ -21,15 +21,17 @@ colnames(stages.copy)<-colnames(stages)
 #DESCRIPTION: subsets data by species and calculates size metrics to return
 #summary measures per species
 #INPUT: df of individual fish with size measurements
-#OUTPUT: df of scientific name, size diff. and average adult length per species
+#OUTPUT: df of scientific name, size diff., percent size diff., and average adult length per species
 avg.size.metrics<-function(dataset){
   
   fish.names<-levels(as.factor(dataset$scientificName))
-  final.df<-data.frame(character(length(fish.names)),numeric(length(fish.names)),numeric(length(fish.names)),stringsAsFactors=FALSE)
-  colnames(final.df)<-c("scientificName","size.diff","avg.adult.length")
+  final.df<-data.frame(character(length(fish.names)),numeric(length(fish.names)),
+                       numeric(length(fish.names)),numeric(length(fish.names)),stringsAsFactors=FALSE)
+  colnames(final.df)<-c("scientificName","size.diff","percent.size.diff","avg.adult.length")
   for (i in 1:length(fish.names)){
     final.df$scientificName[i]<-as.character(fish.names[i])
     final.df$size.diff[i]<-NA
+    final.df$percent.size.diff[i]<-NA
     temp<-subset(dataset,scientificName==fish.names[i])
     adult.length<-round(mean(temp$fishTotalLength[temp$fishLifeStage=="adult"],na.rm=T))
     final.df$avg.adult.length[i]<-adult.length
@@ -37,7 +39,9 @@ avg.size.metrics<-function(dataset){
       #print(summary(aov(fishTotalLength~fishLifeStage,data=temp)))
       juv.length<-mean(temp$fishTotalLength[temp$fishLifeStage=="juvenile"],na.rm=T)
       diff<-adult.length - juv.length
+      final.df$percent.size.diff[i]<-adult.length/juv.length
       final.df$size.diff[i]<-diff
+      
     }
     i=i+1
   }
@@ -109,8 +113,16 @@ new.data.noNA<-subset(new.data,!is.na(size.diff))
 size.diff<-lm(jaccard~size.diff,data=new.data.noNA)
 summary(size.diff)
 
+#Jaccard index ~ adult-juv length difference (mm) and piscivore status (0-nonpisc.; 1-pisc.)
+size.diff<-lm(jaccard~size.diff + pisc,data=new.data.noNA)
+summary(size.diff)
+
+#Jaccard index ~ % adult-juv length difference (mm)
+percent.size.diff<-lm(jaccard~percent.size.diff,data=new.data.noNA)
+summary(percent.size.diff)
+
 #regression with L.megalotis removed
-data.subset<-subset(new.data.noNA,species.names.50!="L.megalotis")
+data.subset<-subset(new.data.noNA,species.names.50!="L.megalotis" & species.names.50!="S.atromaculatus")
 summary(lm(jaccard~size.diff,data=data.subset))
 
 #plot Jaccard dissimilarity against adult-juv size-difference
