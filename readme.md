@@ -1,4 +1,4 @@
-# Larger fish ontogeny shapes ecological network structure
+# Larger fish ontogeny shapes ecological network topology
 
 
 ## About the Project
