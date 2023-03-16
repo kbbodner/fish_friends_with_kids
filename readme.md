@@ -13,10 +13,10 @@ Code for Network Construction, 3D Plot and Matrices, and Dissimilarity Analysis 
 ### *Overview:* 
 To construct inferred adult and stage-structured species interaction networks, we use the packages [EMtree](https://rmomal.github.io/EMtree/) (Momal et al. 2020) which draws on [PLNmodels](http://julien.cremeriefamily.info/PLNmodels/) (Chiquet et al. 2018, 2019) to create networks. We also construct random networks using a rewiring procedure found in [igraph](https://igraph.org/) (Csardi and Nepusz. 2006). Code to construct networks can be found in "Network_Construction_PLN_EMtree_Rewiring.R" and is organized into the following four steps:
 
-1. organize data
-2. build PLNmodels
-3. construct resampled networks with EMtree
-4. create randomly rewired networks
+1. Organize data
+2. Build PLNmodels
+3. Construct resampled networks with EMtree
+4. Create randomly rewired networks
 
 #### *Code:*<span style="font-weight:normal"> "Network_Construction_PLN_EMtree_Rewiring.R" </span> 
 
